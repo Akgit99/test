@@ -141,6 +141,39 @@ button:hover {
   width: auto;
 }
 
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url('/assets/hero-bg.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* dark overlay so text is readable */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  max-width: 600px;
+}
+
+
 
 @keyframes pulse {
   0% { opacity: 1; }
