@@ -130,6 +130,18 @@ button:hover {
   text-align: center;
 }
 
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+
 @keyframes pulse {
   0% { opacity: 1; }
   50% { opacity: 0.5; }

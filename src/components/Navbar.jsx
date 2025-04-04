@@ -2,7 +2,13 @@
 function Navbar() {
     return (
       <nav className="navbar">
-        <div className="container">
+        <div className="container navbar-content">
+{/* Logo */}
+        <div className="logo">
+          <a href="#home">
+            <img src="/assets/logo_3.png" alt="Logo" />
+          </a>
+        </div>
           <div className="nav-links">
             <a href="#home">Home</a>
             <a href="#events">Events</a>
