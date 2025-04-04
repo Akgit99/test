@@ -25,7 +25,7 @@ if (!fs.existsSync(distPath)) {
 app.use(express.static(distPath));
 
 // MongoDB connection
-const mongoUrl = process.env.MONGODB_URI || 'mongodb://localhost:27017';
+const mongoUrl = process.env.MONGODB_URL || 'mongodb://localhost:27017';
 const client = new MongoClient(mongoUrl);
 let db;
 
