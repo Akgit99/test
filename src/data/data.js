@@ -3,7 +3,7 @@ export const events = [
       title: "Anti-Quiz",
       description: "A mind-bending quiz that challenges your physics knowledge in unexpected ways.",
       duration: "2 Hours",
-      image: "/assets/anti-quiz.png",
+      image: "/assets/anti_quiz.png",
       actionText: "Register"
     },
     {
@@ -24,7 +24,7 @@ export const events = [
       title: "Treasure Hunt",
       description: "Solve physics-based puzzles to find hidden treasures.",
       duration: "4 Hours",
-      image: "/assets/treasure-hunt.png",
+      image: "/assets/treasure_hunt.png",
       actionText: "Register"
     }
   ];
