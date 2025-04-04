@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Events from './components/Events';
 import Gallery from './components/Gallery';
-import Sponsors from './components/sponsors';
+import Sponsors from './components/Sponsors';
 import Team from './components/Team';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
