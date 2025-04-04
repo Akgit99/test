@@ -1,57 +1,81 @@
-export function registerRoutes(app, db) {
-  app.post('/api/contact', async (req, res) => {
+// src/components/Events.jsx
+import { events } from '../data/data';
+
+function Events() {
+  const handleRegister = async (eventTitle) => {
     try {
-      const { name, email, subject, message } = req.body;
-      if (!name || !email || !subject || !message) {
-        return res.status(400).json({ message: 'All fields are required' });
+      // Prompt for user input with validation
+      const name = prompt('Enter your name:');
+      if (!name) {
+        alert('Name is required to register.');
+        return;
       }
 
-      const contact = {
+      const email = prompt('Enter your email:');
+      if (!email) {
+        alert('Email is required to register.');
+        return;
+      }
+
+      // Basic email format validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      const phone = prompt('Enter your phone (optional):');
+
+      // Prepare the registration data
+      const registrationData = {
+        event_id: eventTitle,
         name,
         email,
-        subject,
-        message,
-        created_at: new Date().toISOString()
+        phone: phone || null // Ensure phone is null if not provided
       };
 
-      console.log('Saving contact to MongoDB:', contact);
-      await db.collection('contacts').insertOne(contact);
-      console.log('Contact saved successfully:', contact);
-      res.status(200).json({ message: 'Contact submitted successfully!' });
-    } catch (error) {
-      console.error('Error saving contact:', error);
-      res.status(500).json({ message: 'Error submitting contact' });
-    }
-  });
+      console.log('Sending registration data:', registrationData); // Log the data being sent
 
-  app.post('/api/register', async (req, res) => {
-    try {
-      console.log('Received registration request:', req.body); // Log the incoming request
-      const { event_id, name, email, phone } = req.body;
-      if (!event_id || !name || !email) {
-        console.log('Validation failed: Missing required fields', { event_id, name, email });
-        return res.status(400).json({ message: 'Required fields missing' });
+      // Send the registration request
+      const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(registrationData)
+      });
+
+      const data = await response.json();
+
+      // Check if the request was successful
+      if (response.ok) {
+        alert(data.message); // Should show "Successfully registered!"
+      } else {
+        console.error('Registration failed with status:', response.status, 'Message:', data.message);
+        alert(data.message || 'Registration failed. Please try again.');
       }
-
-      const registration = {
-        event_id,
-        name,
-        email,
-        phone: phone || null,
-        created_at: new Date().toISOString()
-      };
-
-      console.log('Saving registration to MongoDB:', registration);
-      const result = await db.collection('registrations').insertOne(registration);
-      if (!result.insertedId) {
-        console.error('Failed to insert registration: No insertedId returned');
-        return res.status(500).json({ message: 'Failed to save registration' });
-      }
-      console.log('Registration saved successfully:', { insertedId: result.insertedId, registration });
-      res.status(200).json({ message: 'Successfully registered!', id: result.insertedId });
     } catch (error) {
-      console.error('Error saving registration:', error);
-      res.status(500).json({ message: 'Error registering for event', error: error.message });
+      console.error('Registration error:', error);
+      alert('Registration failed due to a network error. Please try again.');
     }
-  });
+  };
+
+  return (
+    <section id="events" className="container">
+      <h2>Events</h2>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
+        {events.map((event) => (
+          <div key={event.title} className="event-card">
+            <img src={event.image} alt={event.title} style={{ width: '100%', height: '150px', objectFit: 'cover' }} />
+            <h3>{event.title}</h3>
+            <p>{event.description}</p>
+            <p>Duration: {event.duration}</p>
+            <button onClick={() => event.actionText === 'Register' ? handleRegister(event.title) : null}>
+              {event.actionText}
+            </button>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }
+
+export default Events;
