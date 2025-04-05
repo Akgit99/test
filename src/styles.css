@@ -1,5 +1,5 @@
-/* Import a clean, modern font */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+/* Import circus-inspired and clean fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@400;500;700&display=swap');
 
 * {
   margin: 0;
@@ -9,7 +9,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(135deg, #FFFFFF, #E6F0FA); /* White to light blue gradient */
+  background: #F5E9D7; /* Light beige background from the logo */
   color: #333333; /* Dark gray text for readability */
   line-height: 1.6;
 }
@@ -28,25 +28,29 @@ h2 {
   text-align: center;
   margin-bottom: 50px;
   font-size: 2.8rem;
-  font-weight: 700;
-  color: #0288D1; /* Darker blue for headings */
+  font-family: 'Bangers', cursive;
+  font-weight: 400;
+  color: #D32F2F; /* Red from the logo */
+  text-shadow: 2px 2px 4px rgba(255, 179, 0, 0.3); /* Yellow shadow for circus effect */
 }
 
 /* Buttons */
 button, .cta-button, .submit-button, .event-button {
   padding: 12px 24px;
-  background: linear-gradient(135deg, #4FC3F7, #0288D1); /* Light blue to darker blue gradient */
+  background: linear-gradient(135deg, #FFB300, #D32F2F); /* Yellow to red gradient */
   border: none;
   border-radius: 8px;
   color: #FFFFFF;
-  font-weight: 500;
+  font-family: 'Bangers', cursive;
+  font-weight: 400;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(79, 195, 247, 0.4);
+  box-shadow: 0 5px 15px rgba(255, 179, 0, 0.4);
 }
 
 /* Loading Screen */
@@ -55,13 +59,15 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #FFFFFF, #E6F0FA);
+  background: #F5E9D7;
 }
 
 .loading-title {
   font-size: 3rem;
-  font-weight: 700;
-  color: #4FC3F7;
+  font-family: 'Bangers', cursive;
+  font-weight: 400;
+  color: #D32F2F;
+  text-shadow: 2px 2px 4px rgba(255, 179, 0, 0.3);
   animation: pulse 2s infinite;
 }
 
@@ -83,7 +89,7 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
 }
 
 .logo img {
-  height: 50px;
+  height: 60px;
   width: auto;
 }
 
@@ -95,12 +101,14 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
 .nav-links a {
   color: #333333;
   text-decoration: none;
-  font-weight: 500;
+  font-family: 'Bangers', cursive;
+  font-weight: 400;
+  font-size: 1.2rem;
   transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #4FC3F7;
+  color: #D32F2F;
 }
 
 /* Hero */
@@ -125,8 +133,10 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
 
 .hero h1 {
   font-size: 4.5rem;
-  font-weight: 700;
+  font-family: 'Bangers', cursive;
+  font-weight: 400;
   color: #FFFFFF;
+  text-shadow: 2px 2px 4px rgba(255, 179, 0, 0.3);
   margin-bottom: 20px;
 }
 
@@ -151,7 +161,7 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
 
 .event-card {
   background: #FFFFFF;
-  border: 2px solid #4FC3F7; /* Light blue border */
+  border: 3px solid #0288D1; /* Blue border from the logo */
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -160,7 +170,7 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
 
 .event-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(79, 195, 247, 0.3);
+  box-shadow: 0 10px 25px rgba(2, 136, 209, 0.3);
 }
 
 .event-image-wrapper {
@@ -182,8 +192,9 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
 
 .event-content h3 {
   font-size: 1.6rem;
-  font-weight: 600;
-  color: #333333;
+  font-family: 'Bangers', cursive;
+  font-weight: 400;
+  color: #D32F2F;
   margin-bottom: 10px;
 }
 
@@ -215,7 +226,7 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   height: 220px;
   object-fit: cover;
   border-radius: 10px;
-  border: 2px solid #4FC3F7;
+  border: 2px solid #FFB300; /* Yellow border from the logo */
   transition: transform 0.3s ease;
 }
 
@@ -234,7 +245,7 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
 .sponsor-grid div {
   padding: 20px;
   background: #FFFFFF;
-  border: 2px solid #4FC3F7;
+  border: 2px solid #0288D1;
   border-radius: 10px;
   text-align: center;
   min-width: 200px;
@@ -251,7 +262,7 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
 .team-card {
   text-align: center;
   background: #FFFFFF;
-  border: 2px solid #4FC3F7;
+  border: 2px solid #FFB300;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
@@ -260,7 +271,7 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
 .team-card div {
   width: 150px;
   height: 150px;
-  background: #4FC3F7;
+  background: #D32F2F;
   border-radius: 50%;
   margin: 0 auto 15px;
 }
@@ -270,7 +281,7 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   max-width: 600px;
   margin: 0 auto;
   background: #FFFFFF;
-  border: 2px solid #4FC3F7;
+  border: 3px solid #0288D1;
   border-radius: 15px;
   padding: 30px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -289,17 +300,18 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
 .form-group label {
   display: block;
   margin-bottom: 8px;
-  font-weight: 500;
-  color: #0288D1;
+  font-family: 'Bangers', cursive;
+  font-weight: 400;
+  color: #D32F2F;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid #4FC3F7;
+  border: 1px solid #FFB300;
   border-radius: 8px;
-  background: #F5FAFF; /* Very light blue background for inputs */
+  background: #FFF8E1; /* Very light yellow background for inputs */
   color: #333333;
   font-size: 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -308,8 +320,8 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: #0288D1;
-  box-shadow: 0 0 10px rgba(79, 195, 247, 0.3);
+  border-color: #D32F2F;
+  box-shadow: 0 0 10px rgba(211, 47, 47, 0.3);
 }
 
 .contact-form textarea {
@@ -322,7 +334,7 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
 
 /* Footer */
 .footer {
-  background: #0288D1;
+  background: #D32F2F;
   padding: 30px 0;
   text-align: center;
   font-size: 0.9rem;
@@ -387,7 +399,7 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   }
 
   .hero {
-    height: 70vh; /* Reduce height for mobile */
+    height: 60vh; /* Reduced height for mobile */
   }
 
   .hero h1 {
@@ -462,7 +474,7 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   }
 
   .form-group label {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .contact-form input,
