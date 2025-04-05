@@ -1,35 +1,59 @@
+// src/components/Events.jsx
+import { useState } from 'react';
 import { events } from '../data/data';
 
 function Events() {
-  const handleRegister = async (eventTitle) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+  });
+
+  const handleOpenModal = (eventTitle) => {
+    setSelectedEvent(eventTitle);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedEvent(null);
+    setFormData({ name: '', email: '', phone: '' }); // Reset form
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
+    const { name, email, phone } = formData;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!name) {
+      alert('Name is required to register.');
+      return;
+    }
+    if (!email) {
+      alert('Email is required to register.');
+      return;
+    }
+    if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    const registrationData = {
+      event_id: selectedEvent,
+      name,
+      email,
+      phone: phone || null,
+    };
+
     try {
-      const name = prompt('Enter your name:');
-      if (!name) {
-        alert('Name is required to register.');
-        return;
-      }
-
-      const email = prompt('Enter your email:');
-      if (!email) {
-        alert('Email is required to register.');
-        return;
-      }
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        alert('Please enter a valid email address.');
-        return;
-      }
-
-      const phone = prompt('Enter your phone (optional):');
-
-      const registrationData = {
-        event_id: eventTitle,
-        name,
-        email,
-        phone: phone || null,
-      };
-
       const response = await fetch('/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -39,7 +63,8 @@ function Events() {
       const data = await response.json();
 
       if (response.ok) {
-        alert(data.message);
+        alert(data.message); // You can replace this with a success message in the modal
+        handleCloseModal();
       } else {
         alert(data.message || 'Registration failed. Please try again.');
       }
@@ -66,7 +91,7 @@ function Events() {
               <button
                 className="event-button"
                 onClick={() =>
-                  event.actionText === 'Register' ? handleRegister(event.title) : null
+                  event.actionText === 'Register' ? handleOpenModal(event.title) : null
                 }
               >
                 {event.actionText}
@@ -75,6 +100,64 @@ function Events() {
           </div>
         ))}
       </div>
+
+      {/* Registration Modal */}
+      {isModalOpen && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h3>Register for {selectedEvent}</h3>
+            <form className="registration-form" onSubmit={handleRegister}>
+              <div className="form-group">
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="phone">Phone (optional)</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  placeholder="Enter your phone number"
+                />
+              </div>
+              <div className="modal-buttons">
+                <button type="submit" className="submit-button">
+                  Register
+                </button>
+                <button
+                  type="button"
+                  className="cancel-button"
+                  onClick={handleCloseModal}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

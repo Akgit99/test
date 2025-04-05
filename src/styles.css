@@ -187,56 +187,48 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
 
 /* Updated highlight icon styles */
 .highlight-icon {
-  width: 60px; /* Increased from 40px */
-  height: 60px; /* Increased from 40px */
-  background: #00D4FF;
-  border-radius: 50%;
-  box-shadow: 0 0 15px rgba(0, 212, 255, 0.6); /* Slightly stronger glow */
-  display: flex; /* Added to center the background image */
-  align-items: center;
-  justify-content: center;
-  background-size: 70%; /* Increased from 60% for better visibility */
+  width: 80px; /* Increased size for better visibility */
+  height: 80px;
+  background-size: contain; /* Ensures the full icon is visible without cropping */
+  background-repeat: no-repeat;
   background-position: center;
-  transition: transform 0.3s ease; /* Added hover effect */
+  transition: transform 0.3s ease; /* Keep the hover effect */
+  filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5)); /* Replace solid background with a glow */
 }
 
-/* Add hover effect for interactivity */
+/* Hover effect */
 .highlight-icon:hover {
-  transform: scale(1.1);
+  transform: scale(1.15); /* Slightly larger scale for emphasis */
 }
 
-/* Updated individual icon classes */
+/* Updated individual icon classes - removing the solid background */
 .physics-icon {
-  background: #00D4FF url('/path/to/physics-icon.png') no-repeat center center;
-  background-size: 70%;
+  background-image: url('/path/to/physics-icon.png');
 }
 
 .interactive-icon {
-  background: #00D4FF url('/path/to/interactive-icon.png') no-repeat center center;
-  background-size: 70%;
+  background-image: url('/path/to/interactive-icon.png');
 }
 
 .math-icon {
-  background: #00D4FF url('/path/to/math-icon.png') no-repeat center center;
-  background-size: 70%;
+  background-image: url('/path/to/math-icon.png');
 }
 
 .team-icon {
-  background: #00D4FF url('/path/to/team-icon.png') no-repeat center center;
-  background-size: 70%;
+  background-image: url('/path/to/team-icon.png');
 }
 
-/* Optional: Adjust the highlight item container */
+/* Adjust the highlight item container */
 .highlight-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px; /* Increased from 10px for better spacing */
+  gap: 15px;
 }
 
-/* Optional: Adjust the text size to match larger icons */
+/* Adjust text size to match larger icons */
 .highlight-item p {
-  font-size: 1.1rem; /* Slightly larger text */
+  font-size: 1.1rem;
   font-family: 'Orbitron', sans-serif;
   font-weight: 400;
   color: #FFFFFF;
@@ -631,6 +623,116 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   .contact-form input,
   .contact-form textarea {
     font-size: 0.9rem;
+  }
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 29, 55, 0.9); /* Semi-transparent dark blue */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* Modal Content */
+.modal-content {
+  background: #2A3B5A; /* Matches event card background */
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+.modal-content h3 {
+  font-size: 1.8rem;
+  color: #FFFFFF;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Registration Form */
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
+}
+
+.registration-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #00D4FF;
+  border-radius: 8px;
+  background: rgba(10, 29, 55, 0.5);
+  color: #E0E7FF;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.registration-form input:focus {
+  outline: none;
+  border-color: #39FF14;
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+}
+
+.registration-form input::placeholder {
+  color: #A0AEC0;
+}
+
+/* Modal Buttons */
+.modal-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.cancel-button {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #FF416C, #FF4B2B); /* Red gradient for cancel */
+  border: none;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.cancel-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 20px;
+    width: 95%;
+  }
+
+  .modal-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
   }
 }
 

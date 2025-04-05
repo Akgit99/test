@@ -14,13 +14,6 @@ export const events = [
       actionText: "Register"
     },
     {
-      title: "Math Tricks Stalls",
-      description: "Explore mathematical tricks and puzzles through interactive stalls.",
-      duration: "Ongoing",
-      image: "/assets/stalls.png",
-      actionText: "Visit"
-    },
-    {
       title: "Treasure Hunt",
       description: "Solve physics-based puzzles to find hidden treasures.",
       duration: "4 Hours",
