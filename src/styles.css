@@ -156,6 +156,71 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   display: inline-block;
   text-decoration: none;
 }
+/* About Section */
+.about {
+  background: linear-gradient(135deg, #0A1D37, #1B263B); /* Match the website's background */
+  text-align: center;
+}
+
+.about-description {
+  font-size: 1.2rem;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 400;
+  color: #E0E7FF;
+  max-width: 800px;
+  margin: 0 auto 20px;
+}
+
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.highlight-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.highlight-icon {
+  width: 40px;
+  height: 40px;
+  background: #00D4FF; /* Neon blue for icons */
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5); /* Glow effect */
+}
+
+/* Placeholder styles for icons (replace with actual icons) */
+.physics-icon {
+  background: #00D4FF url('/path/to/physics-icon.png') no-repeat center center;
+  background-size: 60%;
+}
+
+.interactive-icon {
+  background: #00D4FF url('/path/to/interactive-icon.png') no-repeat center center;
+  background-size: 60%;
+}
+
+.math-icon {
+  background: #00D4FF url('/path/to/math-icon.png') no-repeat center center;
+  background-size: 60%;
+}
+
+.team-icon {
+  background: #00D4FF url('/path/to/team-icon.png') no-repeat center center;
+  background-size: 60%;
+}
+
+.highlight-item p {
+  font-size: 1rem;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
 
 /* Events */
 .events-grid {

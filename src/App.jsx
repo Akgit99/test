@@ -3,6 +3,7 @@ import './styles.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Events from './components/Events';
+import About from '.components/About';
 import Gallery from './components/Gallery';
 import Sponsors from './components/Sponsors';
 import Team from './components/Team';
@@ -29,6 +30,7 @@ function App() {
     <div className="app">
       <Navbar />
       <Hero />
+	<About/>
       <Events />
       <Gallery />
       <Sponsors />
