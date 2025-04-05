@@ -7,7 +7,7 @@ function Sponsors() {
       <h2>Our Sponsors</h2>
       <div className="sponsor-grid">
         {sponsors.map((sponsor) => (
-          <div key={sponsor.name} style={{ padding: '20px', background: '#1A1F34', borderRadius: '5px' }}>
+          <div key={sponsor.name}>
             <h3>{sponsor.name}</h3>
           </div>
         ))}
