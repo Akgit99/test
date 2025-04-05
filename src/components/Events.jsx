@@ -1,4 +1,3 @@
-// src/components/Events.jsx
 import { events } from '../data/data';
 
 function Events() {
@@ -61,16 +60,21 @@ function Events() {
   return (
     <section id="events" className="container">
       <h2>Events</h2>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
+      <div className="events-grid">
         {events.map((event) => (
           <div key={event.title} className="event-card">
-            <img src={event.image} alt={event.title} style={{ width: '100%', height: '150px', objectFit: 'cover' }} />
-            <h3>{event.title}</h3>
-            <p>{event.description}</p>
-            <p>Duration: {event.duration}</p>
-            <button onClick={() => event.actionText === 'Register' ? handleRegister(event.title) : null}>
-              {event.actionText}
-            </button>
+            <img src={event.image} alt={event.title} className="event-image" />
+            <div className="event-content">
+              <h3>{event.title}</h3>
+              <p>{event.description}</p>
+              <p><strong>Duration:</strong> {event.duration}</p>
+              <button
+                className="event-button"
+                onClick={() => event.actionText === 'Register' ? handleRegister(event.title) : null}
+              >
+                {event.actionText}
+              </button>
+            </div>
           </div>
         ))}
       </div>

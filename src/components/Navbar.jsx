@@ -1,31 +1,23 @@
-// src/components/Navbar.jsx
 import { useState } from 'react';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
     <nav className="navbar">
       <div className="container navbar-content">
-        {/* Logo */}
         <div className="logo">
           <a href="#home">
-            <img src="/assets/logo_3.png" alt="Logo" />
+            <img src="/assets/logo_3.png" alt="Science Circus Logo" />
           </a>
         </div>
-
-        {/* Hamburger Icon for Mobile */}
-        <div className="hamburger" onClick={toggleMenu}>
+        <div className={`hamburger ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
           <span></span>
           <span></span>
           <span></span>
         </div>
-
-        {/* Navigation Links */}
         <div className={`nav-links ${isOpen ? 'open' : ''}`}>
           <a href="#home" onClick={toggleMenu}>Home</a>
           <a href="#events" onClick={toggleMenu}>Events</a>

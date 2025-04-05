@@ -1,4 +1,3 @@
-// src/App.jsx
 import { useEffect, useState } from 'react';
 import './styles.css';
 import Navbar from './components/Navbar';
@@ -20,16 +19,8 @@ function App() {
 
   if (loading) {
     return (
-      <div style={{
-        height: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        background: '#121628'
-      }}>
-        <h1 style={{ fontSize: '2.5rem', animation: 'pulse 2s infinite' }}>
-          Science Circus
-        </h1>
+      <div className="loading-screen">
+        <h1 className="loading-title">Science Circus</h1>
       </div>
     );
   }
