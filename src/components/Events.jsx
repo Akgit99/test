@@ -1,5 +1,5 @@
 // src/components/Events.jsx
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { events } from '../data/data';
 
 function Events() {
@@ -10,6 +10,38 @@ function Events() {
     email: '',
     phone: '',
   });
+  const [countdowns, setCountdowns] = useState({}); // Store countdowns for each event
+
+  // Update countdowns every second
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newCountdowns = {};
+      events.forEach((event) => {
+        const timeLeft = calculateTimeLeft(event.startDate);
+        newCountdowns[event.title] = timeLeft;
+      });
+      setCountdowns(newCountdowns);
+    }, 1000); // Update every second
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []);
+
+  const calculateTimeLeft = (startDate) => {
+    const now = new Date();
+    const start = new Date(startDate);
+    const difference = start - now;
+
+    if (difference <= 0) {
+      return "Event has started!";
+    }
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+    return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  };
 
   const handleOpenModal = (eventTitle) => {
     setSelectedEvent(eventTitle);
@@ -19,7 +51,7 @@ function Events() {
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedEvent(null);
-    setFormData({ name: '', email: '', phone: '' }); // Reset form
+    setFormData({ name: '', email: '', phone: '' });
   };
 
   const handleInputChange = (e) => {
@@ -63,7 +95,7 @@ function Events() {
       const data = await response.json();
 
       if (response.ok) {
-        alert(data.message); // You can replace this with a success message in the modal
+        alert(data.message);
         handleCloseModal();
       } else {
         alert(data.message || 'Registration failed. Please try again.');
@@ -86,7 +118,7 @@ function Events() {
               <h3>{event.title}</h3>
               <p className="event-description">{event.description}</p>
               <p className="event-duration">
-                <strong>Duration:</strong> {event.duration}
+                <strong>Time Left:</strong> {countdowns[event.title] || 'Calculating...'}
               </p>
               <button
                 className="event-button"

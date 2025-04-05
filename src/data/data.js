@@ -2,21 +2,21 @@ export const events = [
     {
       title: "Anti-Quiz",
       description: "A mind-bending quiz that challenges your physics knowledge in unexpected ways.",
-      duration: "2 Hours",
+      startDate: "2025-04-07T14:00:00+05:30",
       image: "/assets/anti_quiz.png",
       actionText: "Register"
     },
     {
       title: "Physics Squid Game",
       description: "Survive physics-based challenges testing mechanics and energy.",
-      duration: "3 Hours",
+      startDate: "2025-04-10T10:30:00+05:30",
       image: "/assets/squid.png",
       actionText: "Register"
     },
     {
       title: "Treasure Hunt",
       description: "Solve physics-based puzzles to find hidden treasures.",
-      duration: "4 Hours",
+      startDate: "2025-04-12T16:00:00+05:30",
       image: "/assets/treasure_hunt.png",
       actionText: "Register"
     }

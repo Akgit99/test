@@ -178,13 +178,6 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   margin-top: 40px;
 }
 
-.highlight-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
 /* Updated highlight icon styles */
 .highlight-icon {
   width: 80px; /* Increased size for better visibility */
@@ -292,8 +285,14 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   font-size: 0.9rem;
   font-family: 'Orbitron', sans-serif;
   font-weight: 400;
-  color: #39FF14; /* Neon green for duration */
+  color: #39FF14; /* Neon green */
   margin-bottom: 15px;
+  text-align: center;
+}
+
+.event-duration strong {
+  color: #FFFFFF; /* White for "Time Left:" */
+  text-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
 }
 
 .event-button {
