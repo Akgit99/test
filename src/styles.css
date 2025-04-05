@@ -1,5 +1,5 @@
-/* Import circus-inspired and clean fonts */
-@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@400;500;700&display=swap');
+/* Import circus-inspired font */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
 * {
   margin: 0;
@@ -8,16 +8,17 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Bangers', cursive; /* Apply Bangers to all text */
   background: #F5E9D7; /* Light beige background from the logo */
   color: #333333; /* Dark gray text for readability */
   line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scrolling on mobile */
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 15px; /* Adjusted padding for better mobile spacing */
+  padding: 0 15px; /* Consistent padding for all screen sizes */
 }
 
 section {
@@ -91,6 +92,12 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
 .logo img {
   height: 60px;
   width: auto;
+  display: block; /* Ensure the image renders as a block element */
+}
+
+/* Fallback for missing logo image */
+.logo img[src=""] {
+  content: url('/path/to/fallback-logo.png'); /* Provide a fallback image path */
 }
 
 .nav-links {
@@ -122,6 +129,11 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   text-align: center;
 }
 
+/* Fallback for missing hero image */
+.hero {
+  background: url('/assets/hero.png') no-repeat center center/cover, #F5E9D7; /* Fallback to background color if image fails */
+}
+
 .overlay {
   width: 100%;
   height: 100%;
@@ -142,6 +154,8 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
 
 .hero p {
   font-size: 1.5rem;
+  font-family: 'Bangers', cursive;
+  font-weight: 400;
   color: #FFFFFF;
   max-width: 700px;
   margin-bottom: 30px;
@@ -200,12 +214,16 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
 
 .event-description {
   font-size: 1rem;
+  font-family: 'Bangers', cursive;
+  font-weight: 400;
   color: #666666;
   margin-bottom: 10px;
 }
 
 .event-duration {
   font-size: 0.9rem;
+  font-family: 'Bangers', cursive;
+  font-weight: 400;
   color: #0288D1;
   margin-bottom: 15px;
 }
@@ -303,6 +321,7 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   font-family: 'Bangers', cursive;
   font-weight: 400;
   color: #D32F2F;
+  font-size: 1.1rem;
 }
 
 .contact-form input,
@@ -313,6 +332,8 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   border-radius: 8px;
   background: #FFF8E1; /* Very light yellow background for inputs */
   color: #333333;
+  font-family: 'Bangers', cursive;
+  font-weight: 400;
   font-size: 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -339,6 +360,8 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   text-align: center;
   font-size: 0.9rem;
   color: #FFFFFF;
+  font-family: 'Bangers', cursive;
+  font-weight: 400;
 }
 
 /* Hamburger Menu */
@@ -361,6 +384,10 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+  body {
+    overflow-x: hidden; /* Ensure no horizontal scrolling */
+  }
+
   .hamburger {
     display: flex;
   }
@@ -399,17 +426,21 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   }
 
   .hero {
-    height: 60vh; /* Reduced height for mobile */
+    height: 50vh; /* Further reduced height for mobile */
+    background-position: center;
   }
 
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2rem; /* Smaller font size for mobile */
     padding: 0 15px;
+    line-height: 1.2;
   }
 
   .hero p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding: 0 15px;
+    max-width: 90%;
+    line-height: 1.4;
   }
 
   .events-grid {
@@ -419,8 +450,9 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   }
 
   .event-card {
-    margin: 0;
+    margin: 0 auto;
     max-width: 100%; /* Ensure cards don’t overflow */
+    width: 100%;
   }
 
   .event-image-wrapper {
@@ -451,6 +483,7 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
 
   .gallery-img {
     height: 180px;
+    width: 100%;
   }
 
   .sponsor-grid {
@@ -460,6 +493,7 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
 
   .sponsor-grid div {
     min-width: 100%;
+    width: 100%;
   }
 
   .team-grid {
@@ -468,9 +502,16 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
     padding: 0 10px;
   }
 
+  .team-card {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 300px;
+  }
+
   .contact-card {
     padding: 20px;
     margin: 0 10px; /* Add margin to prevent touching screen edges */
+    width: calc(100% - 20px); /* Ensure it fits within the container */
   }
 
   .form-group label {
@@ -487,11 +528,51 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   }
 
   section {
-    padding: 50px 0;
+    padding: 40px 0; /* Reduced padding for mobile */
   }
 
   .container {
     padding: 0 10px; /* Ensure consistent padding on mobile */
+  }
+}
+
+/* Smaller Mobile Devices (e.g., iPhone SE) */
+@media (max-width: 576px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .event-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .event-description {
+    font-size: 0.85rem;
+  }
+
+  .event-duration {
+    font-size: 0.8rem;
+  }
+
+  .gallery-img {
+    height: 160px;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.85rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
   }
 }
 
