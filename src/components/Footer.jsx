@@ -55,6 +55,19 @@ function Footer() {
           </a>
         </div>
 
+        {/* Contact Info */}
+        <div className="contact-info">
+          <p className="location">
+            <strong>Location:</strong>Department of Physics and Astrophysics, North Campus, University of Delhi, University Enclave, Delhi, 110007
+          </p>
+          <p className="owner-email">
+            <strong>Email:</strong> <a href="mailto:Jitendhaka01@physics.du.ac.in">Jitendhaka01@physics.du.ac.in</a>
+          </p>
+          <p className="phone">
+            <strong>Phone:</strong> <a href="tel:+918955701507">+91 89557 01507</a>
+          </p>
+        </div>
+
         {/* Copyright */}
         <p className="copyright">
           © {new Date().getFullYear()} Science Circus. All rights reserved.

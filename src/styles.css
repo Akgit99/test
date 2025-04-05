@@ -621,6 +621,43 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   color: #00D4FF;
 }
 
+/* Contact Info Section */
+.contact-info {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.contact-info p {
+  font-size: 0.95rem; /* Slightly larger than copyright for readability */
+  color: #E0E7FF;
+  margin-bottom: 10px;
+}
+
+.contact-info strong {
+  color: #FFFFFF;
+  font-weight: 600;
+  text-shadow: 0 0 5px rgba(0, 212, 255, 0.3); /* Blue glow */
+  margin-right: 8px;
+}
+
+.contact-info a {
+  color: #00D4FF; /* Neon blue for links */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: #39FF14; /* Neon green on hover */
+  text-shadow: 0 0 8px rgba(57, 255, 20, 0.5);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .contact-info p {
+    font-size: 0.9rem;
+  }
+}
+
 /* Copyright */
 .copyright {
   margin-top: 20px;
