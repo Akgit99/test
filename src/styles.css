@@ -173,6 +173,70 @@ button:hover {
   max-width: 600px;
 }
 
+/* Hamburger Icon Styles */
+.hamburger {
+  display: none; /* Hidden by default on larger screens */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  background: white;
+  height: 3px;
+  width: 100%;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex; /* Show hamburger icon on mobile */
+  }
+
+  .nav-links {
+    display: none; /* Hide links by default on mobile */
+    position: absolute;
+    top: 70px; /* Position below the navbar */
+    left: 0;
+    width: 100%;
+    background: rgba(18, 22, 40, 0.95);
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .nav-links.open {
+    display: flex; /* Show links when menu is open */
+  }
+
+  .nav-links a {
+    padding: 10px 0;
+    font-size: 1.2rem;
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-content {
+    flex-wrap: wrap;
+  }
+}
+
 
 
 @keyframes pulse {
