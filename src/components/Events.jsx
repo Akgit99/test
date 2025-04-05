@@ -3,7 +3,6 @@ import { events } from '../data/data';
 function Events() {
   const handleRegister = async (eventTitle) => {
     try {
-      // Prompt for user input with validation
       const name = prompt('Enter your name:');
       if (!name) {
         alert('Name is required to register.');
@@ -16,7 +15,6 @@ function Events() {
         return;
       }
 
-      // Basic email format validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
         alert('Please enter a valid email address.');
@@ -25,34 +23,27 @@ function Events() {
 
       const phone = prompt('Enter your phone (optional):');
 
-      // Prepare the registration data
       const registrationData = {
         event_id: eventTitle,
         name,
         email,
-        phone: phone || null // Ensure phone is null if not provided
+        phone: phone || null,
       };
 
-      console.log('Sending registration data:', registrationData); // Log the data being sent
-
-      // Send the registration request
       const response = await fetch('/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(registrationData)
+        body: JSON.stringify(registrationData),
       });
 
       const data = await response.json();
 
-      // Check if the request was successful
       if (response.ok) {
-        alert(data.message); // Should show "Successfully registered!"
+        alert(data.message);
       } else {
-        console.error('Registration failed with status:', response.status, 'Message:', data.message);
         alert(data.message || 'Registration failed. Please try again.');
       }
     } catch (error) {
-      console.error('Registration error:', error);
       alert('Registration failed due to a network error. Please try again.');
     }
   };
@@ -63,14 +54,20 @@ function Events() {
       <div className="events-grid">
         {events.map((event) => (
           <div key={event.title} className="event-card">
-            <img src={event.image} alt={event.title} className="event-image" />
+            <div className="event-image-wrapper">
+              <img src={event.image} alt={event.title} className="event-image" />
+            </div>
             <div className="event-content">
               <h3>{event.title}</h3>
-              <p>{event.description}</p>
-              <p><strong>Duration:</strong> {event.duration}</p>
+              <p className="event-description">{event.description}</p>
+              <p className="event-duration">
+                <strong>Duration:</strong> {event.duration}
+              </p>
               <button
                 className="event-button"
-                onClick={() => event.actionText === 'Register' ? handleRegister(event.title) : null}
+                onClick={() =>
+                  event.actionText === 'Register' ? handleRegister(event.title) : null
+                }
               >
                 {event.actionText}
               </button>
