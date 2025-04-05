@@ -338,7 +338,30 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   font-weight: 400;
 }
 
-/* Team */
+
+/* Team Image Styles */
+.team-image-wrapper {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 15px;
+  overflow: hidden;
+  border-radius: 50%; /* Maintains circular shape */
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.5); /* Sci-fi glow effect */
+}
+
+.team-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image fills the circle without distortion */
+  object-position: center;
+  transition: transform 0.3s ease; /* Optional hover effect */
+}
+
+.team-card:hover .team-image {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Existing team styles (for reference) */
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -353,12 +376,19 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 
-.team-card div {
-  width: 150px;
-  height: 150px;
-  background: #00D4FF;
-  border-radius: 50%;
-  margin: 0 auto 15px;
+.team-card h3 {
+  font-size: 1.4rem;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 5px;
+}
+
+.team-card p {
+  font-size: 1rem;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 400;
+  color: #E0E7FF;
 }
 
 /* Footer */

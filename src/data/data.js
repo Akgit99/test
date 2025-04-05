@@ -38,9 +38,8 @@ export const events = [
     { name: "SciLabs" }
   ];
   
-  export const teamMembers = [
-    { name: "Dr. Alex Morgan", role: "Event Director" },
-    { name: "Dr. Sarah Chen", role: "Physics Lead" },
-    { name: "Prof. Michael Davis", role: "Mathematics Lead" },
-    { name: "Dr. Emily Rodriguez", role: "Technology Coordinator" }
-  ];
+export const teamMembers = [
+  { name: "Taylor Swift", role: "Event Director", image: "human1.jpg" },
+  { name: "Ariana Grande", role: "Physics Lead", image: "human2.jpg" },
+  { name: "Lady Gaga", role: "Mathematics Lead", image: "human3.jpg" },
+];

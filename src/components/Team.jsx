@@ -8,13 +8,13 @@ function Team() {
       <div className="team-grid">
         {teamMembers.map((member) => (
           <div key={member.name} className="team-card">
-            <div style={{
-              width: '150px',
-              height: '150px',
-              background: '#33CCFF',
-              borderRadius: '50%',
-              margin: '0 auto 15px'
-            }}></div>
+            <div className="team-image-wrapper">
+              <img
+                src={`/assets/${member.image}`} // Uses the image property from data
+                alt={member.name}
+                className="team-image"
+              />
+            </div>
             <h3>{member.name}</h3>
             <p>{member.role}</p>
           </div>
