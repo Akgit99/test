@@ -185,37 +185,58 @@ button:hover, .cta-button:hover, .submit-button:hover, .event-button:hover {
   gap: 10px;
 }
 
+/* Updated highlight icon styles */
 .highlight-icon {
-  width: 40px;
-  height: 40px;
-  background: #00D4FF; /* Neon blue for icons */
+  width: 60px; /* Increased from 40px */
+  height: 60px; /* Increased from 40px */
+  background: #00D4FF;
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5); /* Glow effect */
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.6); /* Slightly stronger glow */
+  display: flex; /* Added to center the background image */
+  align-items: center;
+  justify-content: center;
+  background-size: 70%; /* Increased from 60% for better visibility */
+  background-position: center;
+  transition: transform 0.3s ease; /* Added hover effect */
 }
 
-/* Placeholder styles for icons (replace with actual icons) */
+/* Add hover effect for interactivity */
+.highlight-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Updated individual icon classes */
 .physics-icon {
   background: #00D4FF url('/path/to/physics-icon.png') no-repeat center center;
-  background-size: 60%;
+  background-size: 70%;
 }
 
 .interactive-icon {
   background: #00D4FF url('/path/to/interactive-icon.png') no-repeat center center;
-  background-size: 60%;
+  background-size: 70%;
 }
 
 .math-icon {
   background: #00D4FF url('/path/to/math-icon.png') no-repeat center center;
-  background-size: 60%;
+  background-size: 70%;
 }
 
 .team-icon {
   background: #00D4FF url('/path/to/team-icon.png') no-repeat center center;
-  background-size: 60%;
+  background-size: 70%;
 }
 
+/* Optional: Adjust the highlight item container */
+.highlight-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Increased from 10px for better spacing */
+}
+
+/* Optional: Adjust the text size to match larger icons */
 .highlight-item p {
-  font-size: 1rem;
+  font-size: 1.1rem; /* Slightly larger text */
   font-family: 'Orbitron', sans-serif;
   font-weight: 400;
   color: #FFFFFF;
